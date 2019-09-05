@@ -7,7 +7,6 @@ services:
         NODE_ENV: test
     command: >
       /bin/ash -c "
-       npm i -S koa;
        npm test
       "
     volumes:

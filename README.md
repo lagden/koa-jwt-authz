@@ -2,12 +2,10 @@
 
 [![NPM version][npm-img]][npm]
 [![Build Status][ci-img]][ci]
-[![Coverage Status][coveralls-img]][coveralls]
 [![Dependency Status][dep-img]][dep]
 [![devDependency Status][devDep-img]][devDep]
 
 [![XO code style][xo-img]][xo]
-[![Greenkeeper badge][greenkeeper-img]][greenkeeper]
 
 
 [npm-img]:         https://img.shields.io/npm/v/@tadashi/koa-jwt-authz.svg
