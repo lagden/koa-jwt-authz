@@ -36,14 +36,13 @@ $ npm i -S @tadashi/koa-jwt-authz
 Use together with [koa-jwt](https://github.com/koajs/jwt) to both validate a JWT and make sure it has the correct permissions to call an endpoint.
 
 ```js
+const jwtAuthz = require('@tadashi/koa-jwt-authz')
+const jwt = require('koa-jwt')
 const Koa = require('koa')
 const Router = require('koa-router')
-const jwt = require('koa-jwt')
-const jwtAuthz = require('@tadashi/koa-jwt-authz')
 
 const app = new Koa()
-
-const router = new Router();
+const router = new Router()
 
 router.get('/', ctx => {
   ctx.body = {home: 'free'}
@@ -57,10 +56,10 @@ router.get('/me',
   }
 )
 
-app.use(router.middleware());
+app.use(router.middleware())
 
-const port = process.env.PORT || 3000;
-app.listen(port);
+const port = process.env.PORT || 3000
+app.listen(port)
 ```
 
 ---
