@@ -23,7 +23,8 @@
     "koa",
     "middleware",
     "jwt",
-    "authorization"
+    "authorization",
+    "auth0"
   ],
   "author": "Thiago Lagden",
   "license": "MIT",
