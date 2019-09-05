@@ -67,11 +67,9 @@ app.listen(port)
 The JWT must have a `scope` claim and it must either be a string of space-separated permissions or an array of strings. For example:
 
 ```
-// String:
-"write:users read:users"
+# String: "write:users read:users"
 
-// Array:
-["write:users", "read:users"]
+# Array: ["write:users", "read:users"]
 ```
 
 
