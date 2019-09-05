@@ -1,0 +1,16 @@
+version: "3.6"
+services:
+  sut:
+    build:
+      context: ./
+      args:
+        NODE_ENV: test
+    command: >
+      /bin/ash -c "
+       npm i -S koa;
+       npm test
+      "
+    volumes:
+      - ./test:/home/node/base/test
+    environment:
+      - NODE_ENV=test

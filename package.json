@@ -1,0 +1,66 @@
+{
+  "name": "@tadashi/koa-jwt-authz",
+  "version": "1.0.0",
+  "description": "Validate a JWTs scope to authorize access to an endpoint",
+  "main": "lib/index.js",
+  "files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "report": "nyc report --reporter=text-lcov | coveralls",
+    "pretest": "xo",
+    "test": "ava -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lagden/koa-jwt-authz.git"
+  },
+  "keywords": [
+    "koa",
+    "middleware",
+    "jwt",
+    "authorization"
+  ],
+  "author": "Thiago Lagden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lagden/koa-jwt-authz/issues"
+  },
+  "homepage": "https://github.com/lagden/koa-jwt-authz#readme",
+  "ava": {
+    "helpers": [
+      "test/helpers/**/*"
+    ]
+  },
+  "xo": {
+    "envs": [
+      "node"
+    ],
+    "semicolon": false,
+    "rules": {
+      "camelcase": [
+        "error",
+        {
+          "properties": "never"
+        }
+      ],
+      "capitalized-comments": 0,
+      "padding-line-between-statements": 0
+    }
+  },
+  "peerDependencies": {
+    "koa": ">=2"
+  },
+  "devDependencies": {
+    "ava": "2.3.0",
+    "hash-to-port": "1.1.0",
+    "koa": "2.8.1",
+    "koa-jwt": "3.6.0",
+    "supertest": "4.0.2",
+    "xo": "0.24.0"
+  }
+}

@@ -1,0 +1,67 @@
+#!/bin/bash
+
+DIR="$( cd -P "$( dirname "$0" )" && pwd )"
+cd $DIR
+cd ..
+
+CURR_FOLDER=`pwd`
+BUILD=""
+SERVICE="sut"
+
+abort() {
+	printf "\n  \033[31mError: $@\033[0m\n\n" && exit 1
+}
+
+ok() {
+	printf "\n  \033[32mOk: $@\033[0m\n\n"
+}
+
+usage() {
+	cat <<-EOF
+
+  Usage: $0 [-b]
+
+  Options:
+    -b   Build image
+    -h   Show usage
+
+EOF
+exit 0
+}
+
+_cleanup() {
+	docker-compose \
+		down \
+		--volumes \
+		--remove-orphans > /dev/null 2>&1
+}
+
+trap '_cleanup; abort "Tests failed for unexpected reasons"' HUP INT QUIT PIPE TERM SIGINT SIGTERM
+
+while getopts ":b" o
+do
+	case ${o} in
+		b) BUILD="--build" ;;
+		*) usage ;;
+	esac
+done
+
+docker-compose \
+	up \
+	--force-recreate \
+	--always-recreate-deps \
+	--abort-on-container-exit \
+	--exit-code-from $SERVICE \
+	--remove-orphans \
+	$BUILD \
+	$SERVICE
+
+if test $? -ne 0; then
+	_cleanup
+	abort "Test FAIL"
+fi
+
+_cleanup
+ok "Test PASS"
+
+exit 0
