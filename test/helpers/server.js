@@ -1,11 +1,12 @@
 'use strict'
 
-import request from 'supertest'
-import toPort from 'hash-to-port'
+const hexId = require('@tadashi/hex-id')
+const request = require('supertest')
+const toPort = require('hash-to-port')
 
 function server(koa) {
-	const hash = (Number(String(Math.random()).split('.')[1]) + Date.now()).toString(26)
+	const hash = hexId()
 	return request.agent(koa.listen(toPort(hash)))
 }
 
-export default server
+module.exports = server

@@ -32,9 +32,21 @@
     "url": "https://github.com/lagden/koa-jwt-authz/issues"
   },
   "homepage": "https://github.com/lagden/koa-jwt-authz#readme",
+  "peerDependencies": {
+    "koa": ">=2"
+  },
+  "devDependencies": {
+    "@tadashi/hex-id": "1.1.1",
+    "ava": "3.5.0",
+    "hash-to-port": "1.1.0",
+    "koa-jwt": "3.6.0",
+    "supertest": "4.0.2",
+    "xo": "0.28.0"
+  },
   "ava": {
-    "helpers": [
-      "test/helpers/**/*"
+    "files": [
+      "test/**/*",
+      "!test/helpers/**/*"
     ]
   },
   "xo": {
@@ -50,18 +62,8 @@
         }
       ],
       "capitalized-comments": 0,
-      "padding-line-between-statements": 0
+      "padding-line-between-statements": 0,
+      "unicorn/prevent-abbreviations": 0
     }
-  },
-  "peerDependencies": {
-    "koa": ">=2"
-  },
-  "devDependencies": {
-    "ava": "2.3.0",
-    "hash-to-port": "1.1.0",
-    "koa": "2.8.1",
-    "koa-jwt": "3.6.0",
-    "supertest": "4.0.2",
-    "xo": "0.24.0"
   }
 }
