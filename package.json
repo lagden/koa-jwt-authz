@@ -37,12 +37,12 @@
   },
   "devDependencies": {
     "@tadashi/hex-id": "1.1.1",
-    "ava": "3.5.0",
+    "ava": "3.5.2",
     "hash-to-port": "1.1.0",
     "koa": "2.11.0",
     "koa-jwt": "3.6.0",
     "supertest": "4.0.2",
-    "xo": "0.28.0"
+    "xo": "0.28.1"
   },
   "ava": {
     "files": [
