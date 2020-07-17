@@ -36,13 +36,13 @@
     "koa": ">=2"
   },
   "devDependencies": {
-    "@tadashi/hex-id": "1.1.1",
-    "ava": "3.7.0",
+    "@tadashi/hex-id": "2.0.0",
+    "ava": "3.10.1",
     "hash-to-port": "1.1.0",
-    "koa": "2.11.0",
-    "koa-jwt": "3.6.0",
+    "koa": "2.13.0",
+    "koa-jwt": "4.0.0",
     "supertest": "4.0.2",
-    "xo": "0.29.1"
+    "xo": "0.32.1"
   },
   "ava": {
     "files": [
