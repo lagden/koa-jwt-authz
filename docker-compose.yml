@@ -10,6 +10,6 @@ services:
        npm test
       "
     volumes:
-      - ./test:/home/node/base/test
+      - ./test:/home/node/app/test
     environment:
       - NODE_ENV=test
