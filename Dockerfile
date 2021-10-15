@@ -1,6 +1,4 @@
-FROM node:14.11-alpine3.12
-
-LABEL maintainer="docker@lagden.in"
+FROM node:14.16-alpine3.13
 
 ARG NODE_ENV="production"
 ARG BASE="/home/node"

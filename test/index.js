@@ -1,10 +1,8 @@
-'use strict'
-
-const test = require('ava')
-const Koa = require('koa')
-const jwt = require('koa-jwt')
-const jwtAuthz = require('../lib')
-const server = require('./helpers/server')
+import test from 'ava'
+import Koa from 'koa'
+import jwt from 'koa-jwt'
+import jwtAuthz from '../lib/authz.js'
+import server from './helper/server.js'
 
 const tokenRW = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3RoaWFnb2xhZ2Rlbi5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NTYzMjUwMWY0NjhmMGYxNzU2ZjRjYWIwIiwiYXVkIjoiUDdiYUJ0U3NyZkJYT2NwOWx5bDFGRGVYdGZhSlM0clYiLCJleHAiOjI1Njg5NjQ5MjYsImlhdCI6MTU0OTk5ODkyNiwic2NvcGUiOlsid3JpdGU6dXNlcnMiLCJyZWFkOnVzZXJzIl19.CaKBzyRfHf_Ffmpm0WgS2w5p_8rM2CFDN1rYnh8E7WE'
 const tokenR = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3RoaWFnb2xhZ2Rlbi5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NTYzMjUwMWY0NjhmMGYxNzU2ZjRjYWIwIiwiYXVkIjoiUDdiYUJ0U3NyZkJYT2NwOWx5bDFGRGVYdGZhSlM0clYiLCJleHAiOjI1Njg5NjQ5MjYsImlhdCI6MTU0OTk5ODkyNiwic2NvcGUiOlsicmVhZDp1c2VycyJdfQ.YoAbB257P3l4MHn7Md92-ohM4DRdXYdpQYdTHjG2pgQ'
@@ -23,7 +21,7 @@ test('200', async t => {
 	const res = await app
 		.get('/')
 		.set({
-			authorization: `Bearer ${tokenR}`
+			authorization: `Bearer ${tokenR}`,
 		})
 	const {ok} = res.body
 
@@ -52,7 +50,7 @@ test('401', async t => {
 	const res = await app
 		.get('/')
 		.set({
-			authorization: `Bearer ${tokenR}`
+			authorization: `Bearer ${tokenR}`,
 		})
 
 	t.is(res.status, 401)
@@ -73,7 +71,7 @@ test('options - scopeKey', async t => {
 	const res = await app
 		.get('/')
 		.set({
-			authorization: `Bearer ${tokenAnother}`
+			authorization: `Bearer ${tokenAnother}`,
 		})
 	const {ok} = res.body
 
@@ -94,7 +92,7 @@ test('options - checkAllScopes - 401', async t => {
 	const res = await app
 		.get('/')
 		.set({
-			authorization: `Bearer ${tokenRW}`
+			authorization: `Bearer ${tokenRW}`,
 		})
 
 	t.is(res.status, 401)
@@ -113,7 +111,7 @@ test('options - checkAllScopes - 200', async t => {
 	const res = await app
 		.get('/')
 		.set({
-			authorization: `Bearer ${tokenRW}`
+			authorization: `Bearer ${tokenRW}`,
 		})
 
 	t.is(res.status, 200)

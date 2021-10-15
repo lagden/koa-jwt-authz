@@ -5,19 +5,11 @@
 [![Dependency Status][dep-img]][dep]
 [![devDependency Status][devDep-img]][devDep]
 
-[![XO code style][xo-img]][xo]
-
 
 [npm-img]:         https://img.shields.io/npm/v/@tadashi/koa-jwt-authz.svg
 [npm]:             https://www.npmjs.com/package/@tadashi/koa-jwt-authz
 [ci-img]:          https://travis-ci.org/lagden/koa-jwt-authz.svg
 [ci]:              https://travis-ci.org/lagden/koa-jwt-authz
-[dep-img]:         https://david-dm.org/lagden/koa-jwt-authz.svg
-[dep]:             https://david-dm.org/lagden/koa-jwt-authz
-[devDep-img]:      https://david-dm.org/lagden/koa-jwt-authz/dev-status.svg
-[devDep]:          https://david-dm.org/lagden/koa-jwt-authz#info=devDependencies
-[xo-img]:          https://img.shields.io/badge/code_style-XO-5ed9c7.svg
-[xo]:              https://github.com/sindresorhus/xo
 
 
 Validate a JWTs `scope` to authorize access to an endpoint.
@@ -36,10 +28,10 @@ $ npm i -S @tadashi/koa-jwt-authz
 Use together with [koa-jwt](https://github.com/koajs/jwt) to both validate a JWT and make sure it has the correct permissions to call an endpoint.
 
 ```js
-const jwtAuthz = require('@tadashi/koa-jwt-authz')
-const jwt = require('koa-jwt')
-const Koa = require('koa')
-const Router = require('koa-router')
+import jwtAuthz from '@tadashi/koa-jwt-authz'
+import jwt from 'koa-jwt'
+import Koa from 'koa'
+import Router from '@koa/router'
 
 const app = new Koa()
 const router = new Router()
@@ -57,9 +49,7 @@ router.get('/me',
 )
 
 app.use(router.middleware())
-
-const port = process.env.PORT || 3000
-app.listen(port)
+app.listen(process.env.PORT ?? 3000)
 ```
 
 ---
@@ -99,4 +89,4 @@ customScopeKey | String               | no          | scope               | The 
 
 ## License
 
-MIT © [Thiago Lagden](http://lagden.in)
+MIT © [Thiago Lagden](https://github.com/lagden)
