@@ -2,12 +2,14 @@
 
 [![NPM version][npm-img]][npm]
 [![Build Status][ci-img]][ci]
-
+[![Coverage Status][coveralls-img]][coveralls]
 
 [npm-img]:         https://img.shields.io/npm/v/@tadashi/koa-jwt-authz.svg
 [npm]:             https://www.npmjs.com/package/@tadashi/koa-jwt-authz
-[ci-img]:          https://travis-ci.org/lagden/koa-jwt-authz.svg
-[ci]:              https://travis-ci.org/lagden/koa-jwt-authz
+[ci-img]:          https://github.com/lagden/koa-jwt-authz/actions/workflows/nodejs.yml/badge.svg
+[ci]:              https://github.com/lagden/koa-jwt-authz/actions/workflows/nodejs.yml
+[coveralls-img]:   https://coveralls.io/repos/github/lagden/koa-jwt-authz/badge.svg?branch=master
+[coveralls]:       https://coveralls.io/github/lagden/koa-jwt-authz?branch=master
 
 
 Validate a JWTs `scope` to authorize access to an endpoint.
