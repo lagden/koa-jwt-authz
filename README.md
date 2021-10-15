@@ -2,8 +2,6 @@
 
 [![NPM version][npm-img]][npm]
 [![Build Status][ci-img]][ci]
-[![Dependency Status][dep-img]][dep]
-[![devDependency Status][devDep-img]][devDep]
 
 
 [npm-img]:         https://img.shields.io/npm/v/@tadashi/koa-jwt-authz.svg
