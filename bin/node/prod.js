@@ -2,10 +2,11 @@
 
 import process from 'node:process'
 import path from 'node:path'
+import {pathToFileURL} from 'node:url'
 import {readFile} from 'node:fs/promises'
 import {createWriteStream} from 'node:fs'
 
-const packageFile = new URL(path.resolve(process.cwd(), 'package.json'), import.meta.url)
+const packageFile = pathToFileURL(path.resolve(process.cwd(), 'package.json'))
 const packageBuf = await readFile(packageFile)
 const packageJson = JSON.parse(packageBuf)
 
